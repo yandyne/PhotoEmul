@@ -1,0 +1,104 @@
+{
+ "image_dir": "/private/tmp/claude-501/-Volumes-D50-SSD-Workspaces---Claude-Claude-Project-spektrafilm4lrc/6d287f9b-0027-45ea-a0b4-44c29f034649/scratchpad/ds_pages",
+ "image": "velvia50_p8_hi.png",
+ "box": [
+  243,
+  307,
+  789,
+  794
+ ],
+ "x_axis": [
+  [
+   240,
+   -3.0
+  ],
+  [
+   731,
+   1.0
+  ]
+ ],
+ "y_axis": [
+  [
+   304.5,
+   4.0
+  ],
+  [
+   796.5,
+   0.0
+  ]
+ ],
+ "grid_x": [
+  301,
+  363,
+  423,
+  485.5,
+  546.5,
+  608,
+  670,
+  731
+ ],
+ "grid_y": [
+  366,
+  426,
+  487,
+  549,
+  610,
+  673,
+  735
+ ],
+ "mask": [
+  [
+   496,
+   325,
+   722,
+   386
+  ],
+  [
+   245,
+   672,
+   336,
+   733
+  ]
+ ],
+ "curves": {
+  "density_curve_r": {
+   "seed": [
+    262,
+    385
+   ],
+   "until": 420
+  },
+  "density_curve_g": {
+   "seed": [
+    262,
+    329
+   ],
+   "until": 420
+  },
+  "density_curve_b": {
+   "seed": [
+    262,
+    342
+   ],
+   "until": 420
+  },
+  "density_curve_mid_steep": {
+   "region": [
+    380,
+    420,
+    700,
+    760
+   ],
+   "by": "rows"
+  },
+  "density_curve_mid_toe": {
+   "region": [
+    600,
+    700,
+    789,
+    794
+   ],
+   "by": "cols"
+  }
+ }
+}

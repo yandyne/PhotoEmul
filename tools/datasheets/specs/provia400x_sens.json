@@ -1,0 +1,15 @@
+{
+  "image_dir": "/private/tmp/claude-501/-Volumes-D50-SSD-Workspaces---Claude-Claude-Project-spektrafilm4lrc/6d287f9b-0027-45ea-a0b4-44c29f034649/scratchpad/ds_pages",
+  "image": "provia400x_p7_hi.png",
+  "box": [926, 306, 1487, 797],
+  "x_axis": [[952, 400], [1464, 700]],
+  "y_axis": [[303.5, 3.0], [799.5, 0.0]],
+  "grid_x": [952, 1123, 1293, 1464],
+  "grid_y": [470, 635],
+  "mask": [[1100, 318, 1490, 402], [975, 545, 1072, 617], [1160, 597, 1257, 673], [1318, 655, 1412, 729]],
+  "curves": {
+    "log_sensitivity_b": {"seed": [1035, 477], "until": 1122, "back": 931, "tol": 16, "gap": 40},
+    "log_sensitivity_g": {"seed": [1200, 515], "until": 1279, "back": 1076, "tol": 16, "gap": 40},
+    "log_sensitivity_r": {"seed": [1365, 565], "until": 1447, "back": 1213, "tol": 16, "gap": 40}
+  }
+}

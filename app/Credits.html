@@ -1,0 +1,84 @@
+<html><head><meta charset="utf-8"><meta name="color-scheme" content="light dark">
+<style>
+body{font-family:-apple-system;font-size:11px;line-height:1.4}
+h2{font-size:12px;margin:14px 0 4px;border-bottom:1px solid rgba(128,128,128,.35);padding-bottom:2px}
+p{margin:4px 0}
+.lic{color:gray;font-size:10px;white-space:pre-wrap;margin:2px 0 8px}
+.k{color:gray}
+</style></head><body>
+<p><b>PhotoEmul</b> is a native macOS editor built on the <b>spektrafilm</b> spectral film engine.
+PhotoEmul itself is free software under the GNU General Public License v3.0 or later (<a href="LICENSE.txt">LICENSE.txt</a>).
+Film and paper profiles, lens data and other third-party material it ships with are listed below with their licenses.</p>
+<p class="k">PhotoEmul은 spektrafilm 스펙트럼 필름 엔진 위에 만든 macOS 편집기입니다. 아래는 이 앱이 사용하는 모든 오픈소스 소프트웨어와 데이터, 그리고 각 라이선스입니다.</p>
+
+<h2>Engines</h2>
+<p><b>spektrafilm OFX</b> — Aedan Diez (github.com/chaert-s, spektrafilm.114c.de). The GPU rendering core (SpektraFilmAppCore, SpektraFilm.metallib)
+that PhotoEmul links is built from the spektrafilm OFX source repository, licensed under GPL-3.0. PhotoEmul is a user-built
+derivative of that GPL source, not an official OFX binary distribution; the official-binary notice and the exported-LUT
+license of the OFX project do not apply to it.</p>
+<p><b>spektrafilm</b> (reference implementation) — Andrea Volpato, github.com/andreavolpato/spektrafilm, GPL-3.0.
+The density-emulation model, the negative → print → scan pipeline and the profile-generation foundation come from this work.
+<i>Spectral film modeling powered by spektrafilm.</i> Please cite the repository / Zenodo DOI (CITATION.cff) in academic work.</p>
+
+<h2>Spectral colour science</h2>
+<p><b>Hanatos 2025 spectral upsampling</b> — Johannes Hanika, vkdt (github.com/hanatos/vkdt), GPL-3.0.
+SpektraHanatos2025Spectra.f32 bundled with this app is the spectral upsampling table in the Hanatos 2025 model direction.</p>
+<p><b>Mallett &amp; Yuksel 2019</b>, “Spectral Primary Decomposition for Rendering with sRGB Reflectance”, EGSR 2019 (diglib.eg.org).
+The alternate spectral reconstruction path follows this method.</p>
+<p><b>CIE standard observer and illuminants</b> — CIE 1931 colour-matching functions, illuminant A and the D series are public CIE definitions.
+Scene light spectra are analytic models written for PhotoEmul (Planck's law at CIE colour temperatures, Gaussian emission bands for
+fluorescent and sodium lamps); no measured lamp tables are included.</p>
+<p><b>Build-time table generation</b> used <b>colour-science</b> (BSD-3-Clause, colour-science.org), <b>NumPy</b> (BSD-3-Clause) and <b>SciPy</b> (BSD-3-Clause).
+None of these libraries ship inside the app; only the tables they produced do.</p>
+
+<h2>Film, paper and filter data</h2>
+<p><b>spektrafilm profiles</b> — Andrea Volpato and contributors, <b>CC BY-SA 4.0</b> (SPEKTRAFILM_LICENSE.txt in the spektrafilm repository).
+The JSON film, paper, enlarger-filter and LUT data under the engine's data folder are these profiles. Profiles that PhotoEmul
+derived from them (Ilford, T-Max, Eterna, instant films, the developer variants and others) carry a “derivation” note describing
+the modification, as CC BY-SA requires, and are shared under the same CC BY-SA 4.0 license.
+Characteristic curves, spectral sensitivities and dye densities in those profiles were digitised from the manufacturers' public
+technical datasheets (Kodak, Fujifilm, Ilford / Harman, Polaroid, CineStill).</p>
+<p><b>Reciprocity failure</b> fits (exposure correction and colour shift on long exposures) follow the manufacturers' public datasheets;
+the fits are PhotoEmul's own.</p>
+
+<h2>Lens profiles</h2>
+<p><b>lensfun database</b> (lensfun.github.io) — distortion, lateral chromatic aberration and vignetting profiles, converted by PhotoEmul's
+own parser into LensProfiles.json. The lensfun database is licensed under <b>Creative Commons Attribution-ShareAlike 3.0</b>
+(CC BY-SA 3.0); the converted LensProfiles.json in this app is shared under the same license.</p>
+
+<h2>Dust &amp; scratches</h2>
+<p><b>FilmDamageSimulator</b> (github.com/daniela997/FilmDamageSimulator) — the dust and scratch statistics were measured from its annotations.
+D. Ivanova, J. Williamson, P. Henderson, “Simulating Analogue Film Damage to Analyse and Improve Artefact Restoration on
+High-resolution Scans”, Eurographics 2023.</p>
+<p class="lic">MIT License — Copyright (c) 2022 Daniela Ivanova
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+<h2>OpenFX SDK</h2>
+<p>The engine source vendors the <b>OpenFX</b> SDK headers (Academy Software Foundation, github.com/AcademySoftwareFoundation/openfx,
+release OFX_Release_1.5.1). PhotoEmul's native build does not load an OFX host, but the headers are part of the engine tree.</p>
+<p class="lic">BSD 3-Clause License — Copyright (c) 2025, OpenFX and contributors to the OpenFX project
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p class="k">The vendored header ofxKeySyms.h also carries X Consortium (1987, 1994) and Digital Equipment Corporation (1987) permission notices; see THIRD_PARTY_NOTICES.txt in the engine source.</p>
+
+<h2>Lightroom Classic plug-in</h2>
+<p>The optional <b>PhotoEmul.lrplugin</b> is written against the Adobe Lightroom Classic SDK (Lua). The plug-in itself is GPL-3.0 like the app.
+Its Python fallback editor uses the spektrafilm reference implementation (GPL-3.0) and <b>napari</b> (BSD-3-Clause); neither is bundled in this app.</p>
+
+<h2>Apple frameworks</h2>
+<p>SwiftUI, AppKit, Metal, MetalKit, Metal Performance Shaders, Core Image, ImageIO, WebKit and Uniform Type Identifiers are system frameworks
+provided by macOS under Apple's SDK license; nothing from them is redistributed.</p>
+
+<p class="k">Trademarks: spektrafilm is a name of Andrea Volpato's project; Kodak, Fujifilm, Ilford, Harman, Polaroid, CineStill, Lightroom and
+other product names belong to their owners and are used only to identify the materials being simulated. PhotoEmul is not endorsed by any of them.</p>
+</body></html>

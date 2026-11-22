@@ -1,0 +1,9 @@
+{
+  "name": "LM Studio",
+  "kind": "http-openai",
+  "url": "http://localhost:1234/v1",
+  "models": ["default"],
+  "images": true,
+  "tools": true,
+  "author": "PhotoEmul example"
+}

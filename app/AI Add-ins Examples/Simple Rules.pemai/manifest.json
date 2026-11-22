@@ -1,0 +1,8 @@
+{
+  "name": "Simple Rules",
+  "kind": "stdio",
+  "executable": "rules.js",
+  "images": false,
+  "tools": false,
+  "author": "PhotoEmul example"
+}

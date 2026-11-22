@@ -1,0 +1,4 @@
+module CSpektra {
+  header "../../build/ofx/SpektraFilm/src/SpektraAppBridge.h"
+  export *
+}

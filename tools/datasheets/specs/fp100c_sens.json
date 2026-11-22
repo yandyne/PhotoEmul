@@ -1,0 +1,9 @@
+{"image_dir": "/private/tmp/claude-501/-Volumes-D50-SSD-Workspaces---Claude-Claude-Project-spektrafilm4lrc/6d287f9b-0027-45ea-a0b4-44c29f034649/scratchpad/fp_digi_pages", "image": "sens_crop.png",
+ "box": [740, 594, 2009, 1497],
+ "x_axis": [[828, 400], [1924.5, 700]], "y_axis": [[779, 1.0], [1141.5, 0.0]],
+ "grid_x": [828, 1196.5, 1557.5, 1924.5], "grid_y": [779, 1141.5],
+ "mask": [[903, 1190, 1105, 1344], [1275, 1232, 1470, 1381], [1575, 1190, 1775, 1344]],
+ "curves": {
+  "log_sensitivity_b": {"seed": [799, 1084], "until": 1228, "tol": 8},
+  "log_sensitivity_g": {"seed": [1174, 1413], "until": 1516, "tol": 8},
+  "log_sensitivity_r": {"seed": [1421, 1402], "until": 1811, "tol": 8}}}

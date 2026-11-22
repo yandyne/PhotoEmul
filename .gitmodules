@@ -1,0 +1,4 @@
+[submodule "build/ofx/SpektraFilm"]
+	path = build/ofx/SpektraFilm
+	url = https://github.com/yandyne/spektrafilm-ofx.git
+	branch = photoemul
