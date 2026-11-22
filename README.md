@@ -39,13 +39,15 @@ Or, in Terminal: `xattr -dr com.apple.quarantine /Applications/PhotoEmul.app`
 
 ### Build yourself
 
-You need Xcode command line tools (`xcode-select --install`) and CMake.
+You need Xcode command line tools (`xcode-select --install`), CMake and Python 3.
 
 ```sh
 git clone --recursive https://github.com/yandyne/PhotoEmul.git
 cd PhotoEmul
+# Python packages the engine build uses to generate its data tables
+python3 -m venv .venv && .venv/bin/pip install numpy scipy colour-science
 # the engine (C++/Metal, spektrafilm-ofx) as a universal static library, once
-cmake -S build/ofx/SpektraFilm -B build/ofx/SpektraFilm/build-universal \
+cmake -S build/ofx/SpektraFilm -B build/ofx/SpektraFilm/build-universal -DPython3_EXECUTABLE="$PWD/.venv/bin/python" \
   -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64" -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0
 app/build.sh                    # writes app/build/PhotoEmul.app (universal); rebuilds the engine when needed
 ARCHS=arm64 app/build.sh        # Apple silicon only, faster

@@ -39,13 +39,15 @@ PhotoEmul은 spektrafilm, spektrafilm-ofx 작성자나 Adobe가 만들거나 지
 
 ### 직접 빌드
 
-Xcode 명령줄 도구(`xcode-select --install`)와 CMake가 필요합니다.
+Xcode 명령줄 도구(`xcode-select --install`)와 CMake, Python 3가 필요합니다.
 
 ```sh
 git clone --recursive https://github.com/yandyne/PhotoEmul.git
 cd PhotoEmul
+# 엔진 빌드가 데이터 표를 만들 때 쓰는 Python 패키지
+python3 -m venv .venv && .venv/bin/pip install numpy scipy colour-science
 # 엔진(C++/Metal, spektrafilm-ofx)을 universal 정적 라이브러리로 한 번 설정
-cmake -S build/ofx/SpektraFilm -B build/ofx/SpektraFilm/build-universal \
+cmake -S build/ofx/SpektraFilm -B build/ofx/SpektraFilm/build-universal -DPython3_EXECUTABLE="$PWD/.venv/bin/python" \
   -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64" -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0
 app/build.sh                    # app/build/PhotoEmul.app (universal), 필요하면 엔진도 다시 빌드
 ARCHS=arm64 app/build.sh        # Apple 실리콘만 (더 빠름)
