@@ -74,7 +74,7 @@ app/build/PhotoEmul.app/Contents/MacOS/PhotoEmul --self-test   # 모두 통과�
 
 저장하지 않고 닫으면 아무것도 추가되지 않습니다. 편집 값과 스냅샷은 사진마다 저장되어, 같은 사진을 다시 열면 이어서 편집합니다.
 
-라이트룸(클라우드 버전)은 플러그인을 지원하지 않습니다. 로그: `~/Library/Logs/Adobe/Lightroom/LrClassicLogs/PhotoEmul.log`
+플러그인은 라이트룸 언어를 따릅니다(한국어 라이트룸이면 한국어, 그 밖에는 영어). 라이트룸(클라우드 버전)은 플러그인을 지원하지 않습니다. 로그: `~/Library/Logs/Adobe/Lightroom/LrClassicLogs/PhotoEmul.log`
 
 PhotoEmul은 단독으로도 쓸 수 있습니다. 파일을 열거나 창에 끌어다 놓고, 파일 › 내보내기로 저장합니다.
 

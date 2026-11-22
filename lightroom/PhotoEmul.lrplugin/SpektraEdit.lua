@@ -85,7 +85,7 @@ local function renderTiff(photo, dir)
 		end
 		return nil, pathOrMessage
 	end
-	return nil, "렌더링할 사진이 없습니다."
+	return nil, LOC "$$$/PhotoEmul/Error/NothingToRender=No photo to render."
 end
 
 local function readTail(path, maxChars)
@@ -119,7 +119,7 @@ local function checkSetup(prefs)
 	if nativeEditor(prefs) then
 		return nil
 	end
-	return "PhotoEmul.app을 찾을 수 없습니다:\n" .. tostring(prefs.appPath)
+	return LOC "$$$/PhotoEmul/Error/AppMissing=Cannot find PhotoEmul.app:" .. "\n" .. tostring(prefs.appPath)
 end
 
 -- The editor input for a photo: the raw original, or a rendered TIFF (second value).
@@ -129,7 +129,7 @@ local function prepareInput(photo, options, dir)
 	end
 	local renderedPath, message = renderTiff(photo, dir)
 	if renderedPath == nil then
-		return nil, "TIFF 렌더링 실패: " .. tostring(message)
+		return nil, LOC "$$$/PhotoEmul/Error/RenderFailed=Rendering the TIFF failed:" .. " " .. tostring(message)
 	end
 	return renderedPath, renderedPath
 end
@@ -165,7 +165,7 @@ local function editOne(photo, options, prefs)
 	end
 	local log = readTail(logPath, 1500)
 	if string.find(log, "Error") then
-		return nil, "PhotoEmul 실행 오류:\n\n" .. log
+		return nil, LOC "$$$/PhotoEmul/Error/Run=PhotoEmul failed:" .. "\n\n" .. log
 	end
 	return nil -- closed without saving
 end
@@ -179,7 +179,7 @@ local function editBatch(photos, options, prefs, progress)
 		if progress:isCanceled() then
 			break
 		end
-		progress:setCaption("준비 중: " .. (photo:getFormattedMetadata("fileName") or ""))
+		progress:setCaption(LOC "$$$/PhotoEmul/Progress/Preparing=Preparing:" .. " " .. (photo:getFormattedMetadata("fileName") or ""))
 		progress:setPortionComplete(i - 1, #photos)
 		local inputPath, renderedPath = prepareInput(photo, options, dir)
 		if inputPath == nil then
@@ -212,7 +212,7 @@ local function editBatch(photos, options, prefs, progress)
 	file:close()
 
 	local logPath = LrPathUtils.child(dir, "lr_edit.log")
-	progress:setCaption("편집기에서 첫 사진을 편집하고 'Lightroom에 저장'을 누르세요")
+	progress:setCaption(LOC "$$$/PhotoEmul/Progress/BatchEdit=Edit the first photo in the editor, then click 'Save to Lightroom'")
 	local command = table.concat({
 		shellQuote(nativeEditor(prefs)),
 		"--batch-list", shellQuote(listPath),
@@ -236,7 +236,7 @@ local function editBatch(photos, options, prefs, progress)
 	if #done == 0 then
 		local log = readTail(logPath, 1500)
 		if string.find(log, "Error") then
-			return nil, "PhotoEmul 실행 오류:\n\n" .. log
+			return nil, LOC "$$$/PhotoEmul/Error/Run=PhotoEmul failed:" .. "\n\n" .. log
 		end
 	end
 	return done
@@ -244,7 +244,7 @@ end
 
 local function importStacked(catalog, photo, outputPath)
 	local added
-	catalog:withWriteAccessDo("PhotoEmul 결과 추가", function()
+	catalog:withWriteAccessDo(LOC "$$$/PhotoEmul/Undo/AddResult=Add PhotoEmul Result", function()
 		added = catalog:addPhoto(outputPath, photo, "above")
 	end)
 	return added
@@ -261,16 +261,17 @@ function SpektraEdit.run(options)
 	local setupError = checkSetup(prefs)
 	if setupError then
 		LrDialogs.message("PhotoEmul", setupError
-			.. "\n\n파일 > 플러그인 관리자 > PhotoEmul 에서 경로를 설정하세요.", "critical")
+			.. "\n\n" .. LOC "$$$/PhotoEmul/Error/SetPath=Set the path in File > Plug-in Manager > PhotoEmul.", "critical")
 		return
 	end
 
 	local batch = false
 	if #photos > 1 then
 		local choice = LrDialogs.confirm(
-			#photos .. "장의 사진을 선택했습니다.",
-			"한 번 편집해서 모든 사진에 같은 편집을 적용하거나, 한 장씩 따로 편집할 수 있습니다.",
-			"모두 같은 편집", "취소", "한 장씩")
+			LOC("$$$/PhotoEmul/Batch/Selected=^1 photos selected.", #photos),
+			LOC "$$$/PhotoEmul/Batch/Explain=Edit once and apply the same edit to every photo, or edit them one by one.",
+			LOC "$$$/PhotoEmul/Batch/Same=Same Edit for All", LOC "$$$/PhotoEmul/Batch/Cancel=Cancel",
+			LOC "$$$/PhotoEmul/Batch/OneByOne=One by One")
 		if choice == "cancel" then
 			return
 		end
@@ -278,7 +279,7 @@ function SpektraEdit.run(options)
 	end
 
 	local progress = LrProgressScope {
-		title = "PhotoEmul에서 편집 중 (편집기 창에서 'Lightroom에 저장'을 누르세요)",
+		title = LOC "$$$/PhotoEmul/Progress/Editing=Editing in PhotoEmul (click 'Save to Lightroom' in the editor window)",
 	}
 	local added = {}
 	if batch then

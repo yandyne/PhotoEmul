@@ -9,12 +9,13 @@ film modeling powered by spektrafilm - https://github.com/andreavolpato/spektraf
 
 local menuItems = {
 	{
-		title = "PhotoEmul에서 편집 (라이트룸 보정 적용)...",
+		-- English defaults; Korean in TranslatedStrings_ko.txt.
+		title = LOC "$$$/PhotoEmul/Menu/Rendered=Edit in PhotoEmul (with Lightroom Adjustments)...",
 		file = "EditRendered.lua",
 		enabledWhen = "photosSelected",
 	},
 	{
-		title = "PhotoEmul에서 편집 (원본 RAW)...",
+		title = LOC "$$$/PhotoEmul/Menu/Raw=Edit in PhotoEmul (Original Raw)...",
 		file = "EditRaw.lua",
 		enabledWhen = "photosSelected",
 	},

@@ -65,16 +65,16 @@ The engine is a git submodule: [yandyne/spektrafilm-ofx](https://github.com/yand
    - From source: `lightroom/install.sh` copies the plug-in into Lightroom's Modules folder and points it at `app/build/PhotoEmul.app` (`--uninstall` removes it).
 2. Restart Lightroom. The app path can be changed in File › Plug-in Manager › PhotoEmul.
 3. Pick photos, then File › Plug-in Extras (or Library › Plug-in Extras):
-   - **PhotoEmul에서 편집 (라이트룸 보정 적용)** (edit with Lightroom adjustments): a 16-bit ProPhoto TIFF with your current Develop settings. Set exposure and white balance in Lightroom, the film look in PhotoEmul.
-   - **PhotoEmul에서 편집 (원본 RAW)** (edit the original raw): opens the raw file as is; Lightroom adjustments are ignored.
-4. With several photos, choose **모두 같은 편집** (same edit for all) or **한 장씩** (one by one).
+   - **Edit in PhotoEmul (with Lightroom Adjustments)**: a 16-bit ProPhoto TIFF with your current Develop settings. Set exposure and white balance in Lightroom, the film look in PhotoEmul.
+   - **Edit in PhotoEmul (Original Raw)**: opens the raw file as is; Lightroom adjustments are ignored.
+4. With several photos, choose **Same Edit for All** or **One by One**.
 5. Adjust, then **Save to Lightroom**. The result, `<name>-photoemul.tif`, is written beside the original and stacked on it.
 
 ![PhotoEmul opened from Lightroom Classic: Cancel and Save to Lightroom replace Open and Export](screenshots/lightroom.jpg)
 
 Closing without saving adds nothing. Edits and snapshots are kept per photo, so opening the same photo again continues where you left off.
 
-The plug-in's menus and messages are in Korean for now. Lightroom (the cloud version) does not support plug-ins.
+The plug-in follows Lightroom's language: English, or Korean when Lightroom runs in Korean. Lightroom (the cloud version) does not support plug-ins.
 Logs: `~/Library/Logs/Adobe/Lightroom/LrClassicLogs/PhotoEmul.log`.
 
 PhotoEmul also works on its own: open a file or drop it on the window, and export with File › Export.

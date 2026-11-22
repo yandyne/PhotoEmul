@@ -7,14 +7,14 @@ local function sectionsForTopOfDialog(f, _propertyTable)
 	local bind = LrView.bind
 	return {
 		{
-			title = "PhotoEmul 설정",
+			title = LOC "$$$/PhotoEmul/Prefs/Title=PhotoEmul Settings",
 			bind_to_object = prefs,
 			f:row {
 				f:static_text { title = "PhotoEmul:", width_in_chars = 10 },
 				f:edit_field { value = bind "appPath", width_in_chars = 60 },
 			},
 			f:row {
-				f:checkbox { title = "라이트룸에서 렌더링한 입력 TIFF 보관 (디버그용)", value = bind "keepRenderedInput" },
+				f:checkbox { title = LOC "$$$/PhotoEmul/Prefs/KeepInput=Keep the TIFF rendered by Lightroom (for debugging)", value = bind "keepRenderedInput" },
 			},
 			f:static_text {
 				title = "film modeling powered by spektrafilm (GPLv3 / profile data CC BY-SA 4.0)\n"
