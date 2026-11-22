@@ -70,6 +70,8 @@ app/build/PhotoEmul.app/Contents/MacOS/PhotoEmul --self-test   # 모두 통과�
 4. 여러 장이면 **모두 같은 편집**과 **한 장씩** 중에서 고릅니다.
 5. 조정한 뒤 **Lightroom에 저장**을 누르면 `<원본이름>-photoemul.tif`가 원본 옆에 저장되고 원본 위에 스택됩니다.
 
+![라이트룸 클래식에서 연 PhotoEmul: 열기·내보내기 대신 취소·Lightroom에 저장 버튼](screenshots/lightroom.jpg)
+
 저장하지 않고 닫으면 아무것도 추가되지 않습니다. 편집 값과 스냅샷은 사진마다 저장되어, 같은 사진을 다시 열면 이어서 편집합니다.
 
 라이트룸(클라우드 버전)은 플러그인을 지원하지 않습니다. 로그: `~/Library/Logs/Adobe/Lightroom/LrClassicLogs/PhotoEmul.log`

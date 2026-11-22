@@ -70,6 +70,8 @@ The engine is a git submodule: [yandyne/spektrafilm-ofx](https://github.com/yand
 4. With several photos, choose **모두 같은 편집** (same edit for all) or **한 장씩** (one by one).
 5. Adjust, then **Save to Lightroom**. The result, `<name>-photoemul.tif`, is written beside the original and stacked on it.
 
+![PhotoEmul opened from Lightroom Classic: Cancel and Save to Lightroom replace Open and Export](screenshots/lightroom.jpg)
+
 Closing without saving adds nothing. Edits and snapshots are kept per photo, so opening the same photo again continues where you left off.
 
 The plug-in's menus and messages are in Korean for now. Lightroom (the cloud version) does not support plug-ins.
