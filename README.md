@@ -4,6 +4,8 @@ A native macOS film emulation editor built on [spektrafilm](https://github.com/a
 
 [한국어](README.ko.md)
 
+![PhotoEmul with Fujifilm Velvia 100 printed on Kodak Portra Endura](screenshots/main.jpg)
+
 PhotoEmul models the whole analogue chain: film stock, exposure and reciprocity, development and storage, enlarger light and filters, printing paper, grain, halation and lens. Every change shows in a live preview, rendered on the GPU.
 
 PhotoEmul is not made by, affiliated with, or supported by the spektrafilm or spektrafilm-ofx authors, or by Adobe.

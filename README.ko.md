@@ -4,6 +4,8 @@
 
 [English](README.md)
 
+![Fujifilm Velvia 100을 Kodak Portra Endura에 인화한 PhotoEmul 화면](screenshots/main.jpg)
+
 필름, 노출과 상반칙 불궤, 현상·보관, 확대기 광원과 필터, 인화지, 그레인, 할레이션, 렌즈까지 아날로그 과정 전체를 모델로 만들었습니다. 모든 조정은 GPU 렌더 실시간 미리보기로 바로 보입니다.
 
 PhotoEmul은 spektrafilm, spektrafilm-ofx 작성자나 Adobe가 만들거나 지원하는 앱이 아닙니다.
