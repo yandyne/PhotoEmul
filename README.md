@@ -41,7 +41,7 @@ Or, in Terminal: `xattr -dr com.apple.quarantine /Applications/PhotoEmul.app`
 
 ### Build yourself
 
-You need Xcode command line tools (`xcode-select --install`), CMake and Python 3.
+You need Xcode (the command line tools alone have no Metal compiler), CMake and Python 3. Xcode 26 and later ship the Metal compiler as a separate download: run `xcodebuild -downloadComponent MetalToolchain` once.
 
 ```sh
 git clone --recursive https://github.com/yandyne/PhotoEmul.git

@@ -41,7 +41,7 @@ PhotoEmul은 spektrafilm, spektrafilm-ofx 작성자나 Adobe가 만들거나 지
 
 ### 직접 빌드
 
-Xcode 명령줄 도구(`xcode-select --install`)와 CMake, Python 3가 필요합니다.
+Xcode(명령줄 도구만으로는 Metal 컴파일러가 없음)와 CMake, Python 3가 필요합니다. Xcode 26부터는 Metal 컴파일러를 따로 받아야 합니다: `xcodebuild -downloadComponent MetalToolchain`을 한 번 실행하세요.
 
 ```sh
 git clone --recursive https://github.com/yandyne/PhotoEmul.git
