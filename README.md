@@ -139,7 +139,7 @@ What the author's 526 messages were:
 ## Contributing
 
 This is a personal project. Pull requests are not accepted and issues are turned off.
-You are welcome to fork it and change it yourself under the license below.
+You are welcome to fork it and change it yourself under the license below; [CONTRIBUTING.md](CONTRIBUTING.md) has notes for forks.
 
 ## License and credits
 
@@ -151,5 +151,5 @@ PhotoEmul is free software under the GNU General Public License v3.0 or later, s
 - Lens profiles converted from the [lensfun](https://lensfun.github.io) database: CC BY-SA 3.0.
 - Dust and scratch statistics from [FilmDamageSimulator](https://github.com/daniela997/FilmDamageSimulator) (MIT).
 
-The full list, with every license text, is in [app/Credits.html](app/Credits.html) (the app's About window).
+The full list, with every license text, is in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) (also in the app's About window, from [app/Credits.html](app/Credits.html)).
 "Lightroom" is Adobe's trademark, used here only to say what the plug-in works with.

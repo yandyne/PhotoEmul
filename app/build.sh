@@ -34,8 +34,10 @@ cp "$APP_DIR/Info.plist" "$BUNDLE/Contents/Info.plist"
 plutil -replace LSMinimumSystemVersion -string "$MIN_MACOS" "$BUNDLE/Contents/Info.plist"
 # Every successful build gets the next build number, shown in About as "0.1.N (date)".
 BUILD_FILE="$APP_DIR/BUILD_NUMBER"
-BUILD=$(( $(cat "$BUILD_FILE" 2>/dev/null || echo 0) + 1 ))
-echo $BUILD > "$BUILD_FILE"
+BUILD=$(cat "$BUILD_FILE" 2>/dev/null || echo 0)
+# Only the development repo (it has tools/publish.sh, which is not published) counts builds up;
+# clones of the public repo build the published number and leave the file untouched.
+if [[ -f "$ROOT/tools/publish.sh" ]]; then BUILD=$(( BUILD + 1 )); echo $BUILD > "$BUILD_FILE"; fi
 BASE_VERSION=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$APP_DIR/Info.plist")
 plutil -replace CFBundleShortVersionString -string "$BASE_VERSION.$BUILD" "$BUNDLE/Contents/Info.plist"
 plutil -replace CFBundleVersion -string "$(date +%Y.%m.%d.%H%M)" "$BUNDLE/Contents/Info.plist"

@@ -126,7 +126,7 @@ PhotoEmul은 한 사람이 AI 모델(Claude Code)과 함께 2026년 10월 21일�
 ## 기여
 
 개인 프로젝트입니다. 풀 리퀘스트는 받지 않고 이슈 기능은 꺼 두었습니다.
-아래 라이선스에 따라 포크해서 직접 고쳐 쓰는 것은 환영합니다.
+아래 라이선스에 따라 포크해서 직접 고쳐 쓰는 것은 환영합니다. 포크할 때 참고할 내용은 [CONTRIBUTING.md](CONTRIBUTING.md)에 있습니다.
 
 ## 라이선스와 크레딧
 
@@ -138,5 +138,5 @@ PhotoEmul은 GNU General Public License v3.0 이상을 따르는 자유 소프�
 - 렌즈 프로파일: [lensfun](https://lensfun.github.io) 데이터베이스를 변환, CC BY-SA 3.0
 - 먼지·스크래치 통계: [FilmDamageSimulator](https://github.com/daniela997/FilmDamageSimulator) (MIT)
 
-라이선스 전문을 포함한 전체 목록은 [app/Credits.html](app/Credits.html)(앱 정보 창)에 있습니다.
+라이선스 전문을 포함한 전체 목록은 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)에 있습니다(앱 정보 창에도 같은 내용, [app/Credits.html](app/Credits.html)).
 "Lightroom"은 Adobe의 상표이며, 플러그인이 함께 동작하는 앱을 밝히기 위해서만 씁니다.
